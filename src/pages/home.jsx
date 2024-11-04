@@ -21,14 +21,17 @@ function Home() {
 
   }
 
+  console.log(pokemons);
+
   return (
     <div>
         <NavBar/>
         <Container maxWidth="xl">
+          <h1 className='text-[#C73659] tracking-wider text-4xl text-center font-black uppercase py-4'>Stuning PokeDex</h1>
             <Grid container spacing={2}>
                 {pokemons.map((pokemon, key) => (
                     <Grid item xs={3} key={key}>
-                        <PokemonCard name={pokemon.data.name} image={pokemon.data.sprites.front_default}/>
+                        <PokemonCard tag={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} type={pokemon.data.types[0].type.name}/>
                     </Grid>
                 ))}
             </Grid>
@@ -36,6 +39,7 @@ function Home() {
         </Container>
     </div>
   )
+
 }
 
 export default Home

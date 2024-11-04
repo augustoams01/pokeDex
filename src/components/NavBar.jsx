@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { Image } from '@mui/icons-material';
+import PokeBall from "../public/images/361998.png";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,31 +55,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function NavBar() {
   return (
-    <Box sx={{ flexGrow: 1 , marginBottom:"2em"}}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="static"  sx={{ backgroundColor: '#191919'}}>
+        <Toolbar className='flex justify-between'>
+          <img src={PokeBall} alt="" className='size-9'/>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon className='text-[#C73659]'/>
             </SearchIconWrapper>
             <StyledInputBase
+              
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
