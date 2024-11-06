@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Image } from '@mui/icons-material';
 import PokeBall from "../public/images/361998.png";
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,22 +54,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar() {
+export default function NavBar({pokemonSearch, hideSearch}) {
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static"  sx={{ backgroundColor: '#191919'}}>
         <Toolbar className='flex justify-between'>
-          <img src={PokeBall} alt="" className='size-9'/>
-          <Search>
+          <img src={PokeBall} alt="" className='size-9 cursor-pointer' onClick={() => navigate('/')}/>
+          {hideSearch ? null : (
+          <Search onChange={(e) => pokemonSearch(e.target.value)}>
             <SearchIconWrapper>
               <SearchIcon className='text-[#C73659]'/>
             </SearchIconWrapper>
             <StyledInputBase
               
-              placeholder="Search…"
+              placeholder="Pesquisar…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search>)}
         </Toolbar>
       </AppBar>
     </Box>
