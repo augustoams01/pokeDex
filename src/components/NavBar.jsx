@@ -63,7 +63,7 @@ export default function NavBar({pokemonSearch, hideSearch}) {
         <Toolbar className='flex justify-between'>
           <img src={PokeBall} alt="" className='size-9 cursor-pointer' onClick={() => navigate('/')}/>
           {hideSearch ? null : (
-          <Search onChange={(e) => pokemonSearch(e.target.value)}>
+          <Search onChange={(e) => pokemonSearch(e.target.value)} sx={{borderRadius: '20px'}}>
             <SearchIconWrapper>
               <SearchIcon className='text-[#C73659]'/>
             </SearchIconWrapper>

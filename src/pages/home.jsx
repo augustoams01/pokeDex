@@ -21,7 +21,7 @@ function Home({setPokemonData}) {
     axios.all(endpoints.map((endpoint) => (axios.get(endpoint)))).then((res) => setPokemons(res))
 
   };
-
+  
   const pokemonSearch = (name) => {
     if(name === ''){
       return getPokemons();
@@ -51,7 +51,7 @@ function Home({setPokemonData}) {
                 {pokemons.map((pokemon, key) => (
                     <Grid item xs={3} key={key}>
                       <Box onClick={() => pokemonClickHandler(pokemon.data)}>
-                      <PokemonCard tag={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} type={pokemon.data.types[0].type.name}/>
+                        <PokemonCard tag={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} type={pokemon.data.types[0].type.name}/>
                       </Box>
 
                     </Grid>
